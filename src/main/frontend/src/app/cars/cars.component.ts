@@ -9,7 +9,6 @@ import { CarService } from '../car.service';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
-
   cars: Car[];
   selectedCar: Car;
 
@@ -32,5 +31,6 @@ export class CarsComponent implements OnInit {
     console.warn(car);
     this.carService.rent(car);
   }
+  
 
 }
