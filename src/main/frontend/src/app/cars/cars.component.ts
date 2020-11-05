@@ -11,9 +11,22 @@ import { CarService } from '../car.service';
 export class CarsComponent implements OnInit {
   cars: Car[];
   selectedCar: Car;
+  view = 'none';
 
   constructor(private carService: CarService) { }
 
+  //Buttons
+  onSelectRent(): void {
+    this.selectedCar = null;
+    this.view = 'rent';
+  }
+
+  onSelectGive(): void {
+    this.selectedCar = null;
+    this.view = 'give';
+  }
+  
+  //Init
   ngOnInit(): void {
     this.getCars();
   }
@@ -22,15 +35,20 @@ export class CarsComponent implements OnInit {
     this.carService.getCarsWithPromise().then(cars => this.cars = cars);
   }
 
+  //Select
   onSelect(car: Car): void {
     console.warn(car);
     this.selectedCar = car;
   }
 
+  //Operations
   rent(car: Car): void {
     console.warn(car);
     this.carService.rent(car);
   }
   
-
+  give(car: Car): void {
+    console.warn(car);
+    this.carService.give(car);
+  }
 }

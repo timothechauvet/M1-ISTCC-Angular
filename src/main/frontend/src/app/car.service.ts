@@ -22,8 +22,17 @@ export class CarService {
   rent(car: Car){
     const index = this.cars.findIndex(obj => obj.plateNumber === car.plateNumber);
     console.warn(car.plateNumber);
-    if (index > -1) {
-      this.cars.splice(index, 1);
+    if (index > -1 && car.rented == false) {
+      this.cars[index].rented = true;
+    }
+  }
+
+  //Append with a new car
+  give(car: Car){
+    const index = this.cars.findIndex(obj => obj.plateNumber === car.plateNumber);
+    console.warn(car.plateNumber);
+    if (index > -1 && car.rented == true) {
+      this.cars[index].rented = false;
     }
   }
 

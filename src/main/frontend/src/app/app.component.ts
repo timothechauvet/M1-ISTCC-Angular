@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CarRental';
-  view = 'none';
-
-  onSelectRent(): void {
-    this.view = 'rent';
-  }
-
-  onSelectGive(): void {
-    this.view = 'give';
-  }
 }
